@@ -1,8 +1,6 @@
-# json and datetime libraries import
 import json
-import datetime
 
-
+from datetime import datetime
 def json_load(file_name):
     """
     Opening the json file in reading mode
@@ -27,10 +25,10 @@ def sort_last_five_list(all_operations):
 
     # Sorting created dates list
     date_format = "%Y-%m-%dT%H:%M:%S.%f"
-    dates = [datetime.datetime.strptime(ts, date_format)
+    dates = [datetime.strptime(ts, date_format)
              for ts in exe_operations]
     dates.sort()
-    sorted_dates = [datetime.datetime.strftime(ts, date_format) for ts in dates]
+    sorted_dates = [datetime.strftime(ts, date_format) for ts in dates]
     sorted_dates.sort(reverse=True)
 
     # Cutting sorted dates list except last five (final) dates
@@ -78,17 +76,17 @@ def final_information(final_sorted):
             elif "Счет" in item["to"]:
                 count_to_inf = item["to"][:5] + "**" + item["to"][-4:]
                 correct_num_format = []
-                splited = item["from"].split(" ")
-                for num1 in range(len(splited[-1])):
+                split_acc_or_number_string = item["from"].split(" ")
+                for num1 in range(len(split_acc_or_number_string[-1])):
                     if num1 in range(6, 12):
                         correct_num_format.append("*")
 
                     else:
-                        correct_num_format.append(splited[-1][num1])
+                        correct_num_format.append(split_acc_or_number_string[-1][num1])
                 total_num = "".join(correct_num_format)
-                splited[-1] = (total_num[:4] + " " + total_num[4:8] + " "
+                split_acc_or_number_string[-1] = (total_num[:4] + " " + total_num[4:8] + " "
                                + total_num[8:12] + " " + total_num[12:])
-                formed_count = " ".join(splited)
+                formed_count = " ".join(split_acc_or_number_string)
                 final_inf_list.append(f"{correct_date_format} {item['description']}\n"
                                       f"{formed_count} -> {count_to_inf}\n{amount} {name}\n")
 
