@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "course3"
+version = "0.1.0"
+description = ""
+authors = ["Stas <stas_sever@mail.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+colorama = "^0.4.6"
+coverage = "^7.3.4"
+iniconfig = "^2.0.0"
+packaging = "^23.2"
+pluggy = "^1.3.0"
+pytest = "^7.4.3"
+pytest-cov = "^4.1.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
